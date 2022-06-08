@@ -4,7 +4,7 @@ import { Column, Model, PrimaryKey, Table } from "sequelize-typescript";
   tableName: "products",
   timestamps: false,
 })
-class Product extends Model {
+class ProductModel extends Model {
   @PrimaryKey
   @Column({ allowNull: false })
   id: string;
@@ -28,4 +28,4 @@ class Product extends Model {
   updatedAt: Date;
 }
 
-export { Product };
+export { ProductModel };

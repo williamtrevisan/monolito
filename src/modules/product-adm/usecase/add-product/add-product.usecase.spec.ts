@@ -14,7 +14,7 @@ describe("AddProductUseCase unit test", () => {
     addProductUseCase = new AddProductUseCase(productRepository);
   });
 
-  it("should add a new product", async () => {
+  it("should be able to add a new product", async () => {
     const input = {
       name: "Product name",
       description: "Product description",
