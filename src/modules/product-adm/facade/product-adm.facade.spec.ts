@@ -1,14 +1,7 @@
 import { Sequelize } from "sequelize-typescript";
 
-import { UseCaseInterface } from "../../@shared/domain/usecase/use-case.interface";
-import { ProductGateway } from "../gateway/product.gateway";
+import { ProductAdmFacadeFactory } from "../factory/product-adm.facade.factory";
 import { ProductModel } from "../infrastructure/sequelize/model/product.model";
-import { ProductRepository } from "../infrastructure/sequelize/repository/product.repository";
-import { AddProductUseCase } from "../usecase/add-product/add-product.usecase";
-import { ProductAdmFacade } from "./product-adm.facade";
-
-let productRepository: ProductGateway;
-let addProductUseCase: UseCaseInterface;
 
 describe("ProductAdmFacade test", () => {
   let sequelize: Sequelize;
@@ -24,9 +17,6 @@ describe("ProductAdmFacade test", () => {
     sequelize.addModels([ProductModel]);
 
     await sequelize.sync();
-
-    productRepository = new ProductRepository();
-    addProductUseCase = new AddProductUseCase(productRepository);
   });
 
   afterEach(async () => {
@@ -34,10 +24,7 @@ describe("ProductAdmFacade test", () => {
   });
 
   it("should be able to add a new product", async () => {
-    const productFacade = new ProductAdmFacade({
-      addProductUseCase,
-      checkStockUseCase: undefined,
-    });
+    const productFacade = ProductAdmFacadeFactory.create();
     const input = {
       id: "1",
       name: "Product name",
