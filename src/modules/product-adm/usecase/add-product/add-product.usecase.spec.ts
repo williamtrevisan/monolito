@@ -1,16 +1,16 @@
 import { ProductGateway } from "../../gateway/product.gateway";
+import { AddProductUseCase } from "./add-product.usecase";
 
 let productRepository: ProductGateway;
 let addProductUseCase: AddProductUseCase;
 
 describe("AddProductUseCase unit test", () => {
   beforeEach(() => {
-    productRepository = (() => {
-      return {
-        add: jest.fn(),
-        findByPk: jest.fn(),
-      };
-    })();
+    const mockRepository = () => {
+      return { add: jest.fn(), findByPk: jest.fn() };
+    };
+
+    productRepository = mockRepository();
     addProductUseCase = new AddProductUseCase(productRepository);
   });
 
@@ -22,6 +22,13 @@ describe("AddProductUseCase unit test", () => {
       stock: 15,
     };
 
-    await addProductUseCase.execute(input);
+    const product = await addProductUseCase.execute(input);
+
+    expect(productRepository.add).toHaveBeenCalled();
+    expect(product.id).toBeDefined();
+    expect(product.name).toBe(input.name);
+    expect(product.description).toBe(input.description);
+    expect(product.purchasePrice).toBe(input.purchasePrice);
+    expect(product.stock).toBe(input.stock);
   });
 });
