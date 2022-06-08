@@ -12,7 +12,7 @@ type ProductProps = {
   updatedAt?: Date;
 };
 
-class Product extends BaseEntity implements AggregateRoot {
+class ProductEntity extends BaseEntity implements AggregateRoot {
   private _name: string;
   private _description: string;
   private _purchasePrice: number;
@@ -44,4 +44,4 @@ class Product extends BaseEntity implements AggregateRoot {
   }
 }
 
-export { Product };
+export { ProductEntity };

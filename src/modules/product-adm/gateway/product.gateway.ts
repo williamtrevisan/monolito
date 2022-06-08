@@ -1,8 +1,8 @@
-import { Product } from "../domain/product.entity";
+import { ProductEntity } from "../domain/product.entity";
 
 interface ProductGateway {
-  add(product: Product): Promise<void>;
-  findByPk(id: string): Promise<Product>;
+  add(product: ProductEntity): Promise<void>;
+  findByPk(id: string): Promise<ProductEntity>;
 }
 
 export { ProductGateway };

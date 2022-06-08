@@ -1,4 +1,4 @@
-import { Product } from "../../domain/product.entity";
+import { ProductEntity } from "../../domain/product.entity";
 import { ProductGateway } from "../../gateway/product.gateway";
 import { AddProductInputDTO, AddProductOutputDTO } from "./add-product-dto";
 
@@ -11,7 +11,7 @@ class AddProductUseCase {
     purchasePrice,
     stock,
   }: AddProductInputDTO): Promise<AddProductOutputDTO> {
-    const product = new Product({
+    const product = new ProductEntity({
       name,
       description,
       purchasePrice,
