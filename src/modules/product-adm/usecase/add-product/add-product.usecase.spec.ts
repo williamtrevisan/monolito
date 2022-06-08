@@ -1,8 +1,9 @@
+import { UseCaseInterface } from "../../../@shared/domain/usecase/use-case.interface";
 import { ProductGateway } from "../../gateway/product.gateway";
 import { AddProductUseCase } from "./add-product.usecase";
 
 let productRepository: ProductGateway;
-let addProductUseCase: AddProductUseCase;
+let addProductUseCase: UseCaseInterface;
 
 describe("AddProductUseCase unit test", () => {
   beforeEach(() => {

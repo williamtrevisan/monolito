@@ -6,11 +6,19 @@ import {
 } from "./product-adm.facade.dto";
 import { ProductAdmFacadeInterface } from "./product-adm.facade.interface";
 
+type ProductAdmFacadeProps = {
+  addProductUseCase: UseCaseInterface;
+  checkStockUseCase: UseCaseInterface;
+};
+
 class ProductAdmFacade implements ProductAdmFacadeInterface {
-  constructor(
-    private readonly _addProductUseCase: UseCaseInterface,
-    private readonly _checkStockUseCase: UseCaseInterface
-  ) {}
+  private _addProductUseCase: UseCaseInterface;
+  private _checkStockUseCase: UseCaseInterface;
+
+  constructor({ addProductUseCase, checkStockUseCase }: ProductAdmFacadeProps) {
+    this._addProductUseCase = addProductUseCase;
+    this._checkStockUseCase = checkStockUseCase;
+  }
 
   async addProduct(input: AddProductFacadeInputDTO): Promise<void> {
     await this._addProductUseCase.execute(input);
