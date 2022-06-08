@@ -1,9 +1,11 @@
 import { Sequelize } from "sequelize-typescript";
 
 import { ProductEntity } from "../../../domain/product.entity";
+import { ProductGateway } from "../../../gateway/product.gateway";
 import { ProductModel } from "../model/product.model";
+import { ProductRepository } from "./product.repository";
 
-let productRepository: ProductRepository;
+let productRepository: ProductGateway;
 
 describe("ProductRepository test", () => {
   let sequelize: Sequelize;
@@ -36,9 +38,9 @@ describe("ProductRepository test", () => {
     });
 
     await productRepository.add(productEntity);
-    const productDatabase = await productRepository.findByPk(
-      productEntity.id.id
-    );
+    const productDatabase = await ProductModel.findOne({
+      where: { id: productEntity.id.id },
+    });
 
     expect(productEntity.id.id).toEqual(productDatabase.id);
     expect(productEntity.name).toEqual(productDatabase.name);
