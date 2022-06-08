@@ -5,4 +5,14 @@ interface AddProductInputDTO {
   stock: number;
 }
 
-export { AddProductInputDTO };
+interface AddProductOutputDTO {
+  id: string;
+  name: string;
+  description: string;
+  purchasePrice: number;
+  stock: number;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+export { AddProductInputDTO, AddProductOutputDTO };
