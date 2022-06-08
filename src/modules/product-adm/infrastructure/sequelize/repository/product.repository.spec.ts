@@ -1,5 +1,6 @@
 import { Sequelize } from "sequelize-typescript";
 
+import { Uuid } from "../../../../@shared/domain/value-object/uuid.value-object";
 import { ProductEntity } from "../../../domain/product.entity";
 import { ProductGateway } from "../../../gateway/product.gateway";
 import { ProductModel } from "../model/product.model";
@@ -49,5 +50,26 @@ describe("ProductRepository test", () => {
     expect(productEntity.stock).toEqual(productDatabase.stock);
     expect(productEntity.createdAt).toStrictEqual(productDatabase.createdAt);
     expect(productEntity.updatedAt).toStrictEqual(productDatabase.updatedAt);
+  });
+
+  it("should be able to find a product by primary key", async () => {
+    const productEntity = new ProductEntity({
+      id: new Uuid("1"),
+      name: "Product name",
+      description: "Product description",
+      purchasePrice: 175,
+      stock: 5,
+    });
+    await productRepository.add(productEntity);
+
+    const productDatabase = await productRepository.findByPk(
+      productEntity.id.id
+    );
+
+    expect(productEntity.id.id).toEqual("1");
+    expect(productEntity.name).toEqual(productDatabase.name);
+    expect(productEntity.description).toEqual(productDatabase.description);
+    expect(productEntity.purchasePrice).toEqual(productDatabase.purchasePrice);
+    expect(productEntity.stock).toEqual(productDatabase.stock);
   });
 });
