@@ -1,8 +1,8 @@
-import { Client } from "../domain/client.entity";
+import { ClientEntity } from "../domain/client.entity";
 
 interface ClientGateway {
-  add(client: Client): Promise<void>;
-  findByPk(id: string): Promise<Client>;
+  add(client: ClientEntity): Promise<void>;
+  findByPk(id: string): Promise<ClientEntity>;
 }
 
 export { ClientGateway };

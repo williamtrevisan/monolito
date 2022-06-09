@@ -1,10 +1,10 @@
 import { UseCaseInterface } from "../../../@shared/domain/usecase/use-case.interface";
 import { Uuid } from "../../../@shared/domain/value-object/uuid.value-object";
-import { Client } from "../../domain/client.entity";
+import { ClientEntity } from "../../domain/client.entity";
 import { ClientGateway } from "../../gateway/client.gateway";
 import {
-  addClientInputDTO,
-  addClientOutputDTO,
+  AddClientInputDTO,
+  AddClientOutputDTO,
 } from "./add-client.usecase.dto";
 
 class AddClientUseCase implements UseCaseInterface {
@@ -15,8 +15,8 @@ class AddClientUseCase implements UseCaseInterface {
     name,
     email,
     address,
-  }: addClientInputDTO): Promise<addClientOutputDTO> {
-    const client = new Client({
+  }: AddClientInputDTO): Promise<AddClientOutputDTO> {
+    const client = new ClientEntity({
       id: new Uuid(id),
       name,
       email,

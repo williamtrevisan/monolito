@@ -1,11 +1,11 @@
-interface addClientInputDTO {
+interface AddClientInputDTO {
   id?: string;
   name: string;
   email: string;
   address: string;
 }
 
-interface addClientOutputDTO {
+interface AddClientOutputDTO {
   id: string;
   name: string;
   email: string;
@@ -14,4 +14,4 @@ interface addClientOutputDTO {
   updatedAt: Date;
 }
 
-export { addClientInputDTO, addClientOutputDTO };
+export { AddClientInputDTO, AddClientOutputDTO };
