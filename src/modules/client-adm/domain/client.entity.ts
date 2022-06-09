@@ -9,7 +9,7 @@ type ClientProps = {
   address: string;
 };
 
-class Client extends BaseEntity implements AggregateRoot {
+class ClientEntity extends BaseEntity implements AggregateRoot {
   private _name: string;
   private _email: string;
   private _address: string;
@@ -35,4 +35,4 @@ class Client extends BaseEntity implements AggregateRoot {
   }
 }
 
-export { Client };
+export { ClientEntity };
