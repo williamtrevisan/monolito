@@ -3,9 +3,9 @@ import { Sequelize } from "sequelize-typescript";
 import { ProductAdmFacadeFactory } from "../factory/product-adm.facade.factory";
 import { ProductModel } from "../infrastructure/sequelize/model/product.model";
 
-describe("ProductAdmFacade test", () => {
-  let sequelize: Sequelize;
+let sequelize: Sequelize;
 
+describe("ProductAdmFacade test", () => {
   beforeEach(async () => {
     sequelize = new Sequelize({
       dialect: "sqlite",

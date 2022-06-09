@@ -7,10 +7,9 @@ import { ProductModel } from "../model/product.model";
 import { ProductRepository } from "./product.repository";
 
 let productRepository: ProductGateway;
+let sequelize: Sequelize;
 
 describe("ProductRepository test", () => {
-  let sequelize: Sequelize;
-
   beforeEach(async () => {
     sequelize = new Sequelize({
       dialect: "sqlite",
