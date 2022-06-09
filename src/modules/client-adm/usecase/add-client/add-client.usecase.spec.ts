@@ -1,5 +1,6 @@
 import { UseCaseInterface } from "../../../@shared/domain/usecase/use-case.interface";
 import { ClientGateway } from "../../gateway/client.gateway";
+import { AddClientUseCase } from "./add-client.usecase";
 
 let clientRepository: ClientGateway;
 let addClientUseCase: UseCaseInterface;
