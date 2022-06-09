@@ -2,6 +2,7 @@ import { UseCaseInterface } from "../../../@shared/domain/usecase/use-case.inter
 import { Uuid } from "../../../@shared/domain/value-object/uuid.value-object";
 import { ProductEntity } from "../../domain/product.entity";
 import { ProductGateway } from "../../gateway/product.gateway";
+import { FindProductUseCase } from "./find-product.usecase";
 
 let productRepository: ProductGateway;
 let findProductUseCase: UseCaseInterface;
