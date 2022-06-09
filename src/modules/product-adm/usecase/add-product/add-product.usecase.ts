@@ -1,7 +1,7 @@
 import { Uuid } from "../../../@shared/domain/value-object/uuid.value-object";
 import { ProductEntity } from "../../domain/product.entity";
 import { ProductGateway } from "../../gateway/product.gateway";
-import { AddProductInputDTO, AddProductOutputDTO } from "./add-product-dto";
+import { AddProductInputDTO, AddProductOutputDTO } from "./add-product.dto";
 
 class AddProductUseCase {
   constructor(private readonly _productRepository: ProductGateway) {}

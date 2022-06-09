@@ -1,6 +1,8 @@
 import { UseCaseInterface } from "../../../@shared/domain/usecase/use-case.interface";
+import { Uuid } from "../../../@shared/domain/value-object/uuid.value-object";
 import { ProductEntity } from "../../domain/product.entity";
 import { ProductGateway } from "../../gateway/product.gateway";
+import { CheckStockUseCase } from "./check-stock.usecase";
 
 let productRepository: ProductGateway;
 let checkStockUseCase: UseCaseInterface;
@@ -8,6 +10,7 @@ let checkStockUseCase: UseCaseInterface;
 describe("CheckStockUseCase unit test", () => {
   beforeEach(() => {
     const product = new ProductEntity({
+      id: new Uuid("1"),
       name: "Product name",
       description: "Product description",
       purchasePrice: 150,
