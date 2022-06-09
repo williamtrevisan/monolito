@@ -18,8 +18,8 @@ class ProductRepository implements ProductGateway {
     );
   }
 
-  async findByPk(id: string): Promise<ProductEntity> {
-    const product = await ProductModel.findOne({ where: { id } });
+  async findByPk(productId: string): Promise<ProductEntity> {
+    const product = await ProductModel.findOne({ where: { id: productId } });
 
     return new ProductEntity({
       id: new Uuid(product.id),
