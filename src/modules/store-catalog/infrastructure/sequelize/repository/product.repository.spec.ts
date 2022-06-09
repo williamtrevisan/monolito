@@ -52,4 +52,20 @@ describe("ProductRepository test", () => {
     expect(products[1].description).toEqual("Product 2 description");
     expect(products[1].salesPrice).toEqual(235);
   });
+
+  it("should be able to find a unique product by primary key", async () => {
+    await ProductModel.create({
+      id: "1",
+      name: "Product 1 name",
+      description: "Product 1 description",
+      salesPrice: 175,
+    });
+
+    const product = await productRepository.findByPk("1");
+
+    expect(product.id.id).toEqual("1");
+    expect(product.name).toEqual("Product 1 name");
+    expect(product.description).toEqual("Product 1 description");
+    expect(product.salesPrice).toEqual(175);
+  });
 });

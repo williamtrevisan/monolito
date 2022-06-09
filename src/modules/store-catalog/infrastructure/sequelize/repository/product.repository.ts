@@ -18,8 +18,15 @@ class ProductRepository implements ProductGateway {
     );
   }
 
-  findByPk(id: string): Promise<ProductEntity> {
-    throw new Error("Method not implemented.");
+  async findByPk(id: string): Promise<ProductEntity> {
+    const product = await ProductModel.findOne({ where: { id } });
+
+    return new ProductEntity({
+      id: new Uuid(product.id),
+      name: product.name,
+      description: product.description,
+      salesPrice: product.salesPrice,
+    });
   }
 }
 
