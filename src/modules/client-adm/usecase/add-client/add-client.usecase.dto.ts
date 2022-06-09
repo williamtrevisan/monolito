@@ -10,6 +10,8 @@ interface addClientOutputDTO {
   name: string;
   email: string;
   address: string;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 export { addClientInputDTO, addClientOutputDTO };
