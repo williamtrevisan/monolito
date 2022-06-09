@@ -1,5 +1,5 @@
 interface FindStoreCatalogFacadeInputDTO {
-  id: string;
+  productId: string;
 }
 
 interface FindStoreCatalogFacadeOutputDTO {
