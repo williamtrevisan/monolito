@@ -1,5 +1,5 @@
 import { UseCaseInterface } from "../../@shared/domain/usecase/use-case.interface";
-import { FindAllProductsOutputDTO } from "../usecase/find-all-products/find-all-products.dto";
+import { FindAllProductsOutputDTO } from "../usecase/find-all-products/find-all-products.usecase.dto";
 import {
   FindStoreCatalogFacadeInputDTO,
   FindStoreCatalogFacadeOutputDTO,

@@ -1,4 +1,4 @@
-import { FindAllProductsOutputDTO } from "../usecase/find-all-products/find-all-products.dto";
+import { FindAllProductsOutputDTO } from "../usecase/find-all-products/find-all-products.usecase.dto";
 import {
   FindStoreCatalogFacadeInputDTO,
   FindStoreCatalogFacadeOutputDTO,
