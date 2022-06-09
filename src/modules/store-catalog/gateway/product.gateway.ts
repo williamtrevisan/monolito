@@ -1,4 +1,4 @@
-import { ProductEntity } from "../../product-adm/domain/product.entity";
+import { ProductEntity } from "../domain/product.entity";
 
 interface ProductGateway {
   findAll(): Promise<ProductEntity[]>;

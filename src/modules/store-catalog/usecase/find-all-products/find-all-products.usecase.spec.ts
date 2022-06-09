@@ -2,6 +2,7 @@ import { UseCaseInterface } from "../../../@shared/domain/usecase/use-case.inter
 import { Uuid } from "../../../@shared/domain/value-object/uuid.value-object";
 import { ProductEntity } from "../../domain/product.entity";
 import { ProductGateway } from "../../gateway/product.gateway";
+import { FindAllProductsUseCase } from "./find-all-products.usecase";
 
 let productRepository: ProductGateway;
 let findAllProductsUseCase: UseCaseInterface;
@@ -16,8 +17,8 @@ describe("FindAllProductsUseCase unit test", () => {
     });
     const product2 = new ProductEntity({
       id: new Uuid("2"),
-      name: "Product 1",
-      description: "Product 1 description",
+      name: "Product 2",
+      description: "Product 2 description",
       salesPrice: 135,
     });
 
@@ -35,7 +36,7 @@ describe("FindAllProductsUseCase unit test", () => {
   });
 
   it("should be able to find all product", async () => {
-    const products = await findAllProductsUseCase.execute();
+    const { products } = await findAllProductsUseCase.execute({});
 
     expect(productRepository.findAll).toHaveBeenCalled();
     expect(products).toHaveLength(2);
