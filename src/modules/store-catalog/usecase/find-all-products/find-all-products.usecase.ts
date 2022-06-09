@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { UseCaseInterface } from "../../../@shared/domain/usecase/use-case.interface";
 import { ProductGateway } from "../../gateway/product.gateway";
-import { FindAllProductsOutputDTO } from "./find-all-products.dto";
+import { FindAllProductsOutputDTO } from "./find-all-products.usecase.dto";
 
 class FindAllProductsUseCase implements UseCaseInterface {
   constructor(private readonly _productRepository: ProductGateway) {}

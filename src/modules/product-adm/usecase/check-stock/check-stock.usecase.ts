@@ -1,5 +1,8 @@
 import { ProductGateway } from "../../gateway/product.gateway";
-import { CheckStockInputDTO, CheckStockOutputDTO } from "./check-stock.dto";
+import {
+  CheckStockInputDTO,
+  CheckStockOutputDTO,
+} from "./check-stock.usecase.dto";
 
 class CheckStockUseCase {
   constructor(private readonly _productRepository: ProductGateway) {}
