@@ -5,8 +5,10 @@ import {
 } from "./client-adm.facade.dto";
 
 interface ClientAdmFacadeInterface {
-  add(input: AddClientFacadeInputDTO): Promise<void>;
-  findByPk(input: FindClientFacadeInputDTO): Promise<FindClientFacadeOutputDTO>;
+  addClient(input: AddClientFacadeInputDTO): Promise<void>;
+  findClientByPk(
+    input: FindClientFacadeInputDTO
+  ): Promise<FindClientFacadeOutputDTO>;
 }
 
 export { ClientAdmFacadeInterface };
