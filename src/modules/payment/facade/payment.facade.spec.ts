@@ -1,9 +1,7 @@
 import { Sequelize } from "sequelize-typescript";
 
+import { PaymentFacadeFactory } from "../factory/payment.facade.factory";
 import { TransactionModel } from "../infrastructure/sequelize/model/transaction.model";
-import { TransactionRepository } from "../infrastructure/sequelize/repository/transaction.repository";
-import { ProcessPaymentUseCase } from "../usecase/process-payment/process-payment.usecase";
-import { PaymentFacade } from "./payment.facade";
 
 let sequelize: Sequelize;
 
@@ -26,12 +24,12 @@ describe("StoreCatalogFacade test", () => {
   });
 
   it("should be able to save a new transaction", async () => {
-    const transactionRepository = new TransactionRepository();
-    const processPaymentUseCase = new ProcessPaymentUseCase(
-      transactionRepository
-    );
-    const paymentFacade = new PaymentFacade(processPaymentUseCase);
-    // const storeCatalogFacade = StoreCatalogFacadeFactory.create();
+    // const transactionRepository = new TransactionRepository();
+    // const processPaymentUseCase = new ProcessPaymentUseCase(
+    //   transactionRepository
+    // );
+    // const paymentFacade = new PaymentFacade(processPaymentUseCase);
+    const paymentFacade = PaymentFacadeFactory.create();
 
     const transaction = await paymentFacade.save({
       orderId: "orderId",
