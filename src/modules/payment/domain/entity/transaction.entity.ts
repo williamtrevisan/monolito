@@ -1,13 +1,13 @@
 import { AggregateRoot } from "../../../@shared/domain/entity/aggregate-root.interface";
 import { BaseEntity } from "../../../@shared/domain/entity/base.entity";
 import { Uuid } from "../../../@shared/domain/value-object/uuid.value-object";
-import { TransactionStatus } from "../enum/transaction_status.enum";
+import { TransactionStatus } from "../enum/transaction-status.enum";
 
 type TransactionProps = {
   id?: Uuid;
   orderId: string;
   amount: number;
-  status: TransactionStatus;
+  status?: TransactionStatus;
   createdAt?: Date;
   updatedAt?: Date;
 };
@@ -22,7 +22,7 @@ class TransactionEntity extends BaseEntity implements AggregateRoot {
 
     this._orderId = props.orderId;
     this._amount = props.amount;
-    this._status = props.status;
+    this._status = props.status || TransactionStatus.PENDING;
 
     this.validate();
   }
