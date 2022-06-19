@@ -28,13 +28,17 @@ class TransactionEntity extends BaseEntity implements AggregateRoot {
   }
 
   validate() {
+    if (this._amount <= 0) throw new Error("Amount must be greater than 0");
+  }
+
+  process() {
     if (this._amount < 100) {
-      this.approve();
+      this.reject();
 
       return;
     }
 
-    this.reject();
+    this.approve();
   }
 
   approve() {
