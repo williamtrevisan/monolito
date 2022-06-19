@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize-typescript";
 
-import { Uuid } from "../../../../../@shared/domain/value-object/uuid.value-object";
-import { TransactionEntity } from "../../../entity/transaction.entity";
+import { Uuid } from "../../../../@shared/domain/value-object/uuid.value-object";
+import { TransactionEntity } from "../../../domain/entity/transaction.entity";
 import { TransactionStatus } from "../../../enum/transaction-status.enum";
 import { TransactionGateway } from "../../../gateway/transaction.gateway";
 import { TransactionModel } from "../model/transaction.model";

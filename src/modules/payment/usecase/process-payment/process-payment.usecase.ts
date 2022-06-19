@@ -1,5 +1,5 @@
-import { UseCaseInterface } from "../../../../@shared/domain/usecase/use-case.interface";
-import { TransactionEntity } from "../../entity/transaction.entity";
+import { UseCaseInterface } from "../../../@shared/domain/usecase/use-case.interface";
+import { TransactionEntity } from "../../domain/entity/transaction.entity";
 import { TransactionGateway } from "../../gateway/transaction.gateway";
 import {
   ProcessPaymentInputDTO,

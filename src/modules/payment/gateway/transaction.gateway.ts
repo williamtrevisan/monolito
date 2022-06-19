@@ -1,4 +1,4 @@
-import { TransactionEntity } from "../entity/transaction.entity";
+import { TransactionEntity } from "../domain/entity/transaction.entity";
 
 interface TransactionGateway {
   save(input: TransactionEntity): Promise<TransactionEntity>;

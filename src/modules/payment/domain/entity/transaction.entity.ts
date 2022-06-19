@@ -1,7 +1,7 @@
 import { AggregateRoot } from "../../../@shared/domain/entity/aggregate-root.interface";
 import { BaseEntity } from "../../../@shared/domain/entity/base.entity";
 import { Uuid } from "../../../@shared/domain/value-object/uuid.value-object";
-import { TransactionStatus } from "../enum/transaction-status.enum";
+import { TransactionStatus } from "../../enum/transaction-status.enum";
 
 type TransactionProps = {
   id?: Uuid;

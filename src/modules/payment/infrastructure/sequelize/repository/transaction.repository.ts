@@ -1,4 +1,4 @@
-import { TransactionEntity } from "../../../entity/transaction.entity";
+import { TransactionEntity } from "../../../domain/entity/transaction.entity";
 import { TransactionGateway } from "../../../gateway/transaction.gateway";
 import { TransactionModel } from "../model/transaction.model";
 

@@ -1,6 +1,6 @@
-import { UseCaseInterface } from "../../../../@shared/domain/usecase/use-case.interface";
-import { Uuid } from "../../../../@shared/domain/value-object/uuid.value-object";
-import { TransactionEntity } from "../../entity/transaction.entity";
+import { UseCaseInterface } from "../../../@shared/domain/usecase/use-case.interface";
+import { Uuid } from "../../../@shared/domain/value-object/uuid.value-object";
+import { TransactionEntity } from "../../domain/entity/transaction.entity";
 import { TransactionStatus } from "../../enum/transaction-status.enum";
 import { TransactionGateway } from "../../gateway/transaction.gateway";
 import { ProcessPaymentUseCase } from "./process-payment.usecase";
