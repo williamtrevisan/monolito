@@ -1,7 +1,7 @@
-enum PaymentStatus {
+enum TransactionStatus {
   PENDING = "pending",
   APPROVED = "approved",
   REJECTED = "rejected",
 }
 
-export { PaymentStatus };
+export { TransactionStatus };

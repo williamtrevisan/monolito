@@ -1,23 +1,23 @@
 import { AggregateRoot } from "../../../@shared/domain/entity/aggregate-root.interface";
 import { BaseEntity } from "../../../@shared/domain/entity/base.entity";
 import { Uuid } from "../../../@shared/domain/value-object/uuid.value-object";
-import { PaymentStatus } from "../enum/payment_status.enum";
+import { TransactionStatus } from "../enum/transaction_status.enum";
 
-type PaymentProps = {
+type TransactionProps = {
   id?: Uuid;
   orderId: string;
   amount: number;
-  status: PaymentStatus;
+  status: TransactionStatus;
   createdAt?: Date;
   updatedAt?: Date;
 };
 
-class PaymentEntity extends BaseEntity implements AggregateRoot {
+class TransactionEntity extends BaseEntity implements AggregateRoot {
   private _orderId: string;
   private _amount: number;
-  private _status: PaymentStatus;
+  private _status: TransactionStatus;
 
-  constructor(props: PaymentProps) {
+  constructor(props: TransactionProps) {
     super(props.id);
 
     this._orderId = props.orderId;
@@ -38,11 +38,11 @@ class PaymentEntity extends BaseEntity implements AggregateRoot {
   }
 
   approve() {
-    this._status = PaymentStatus.APPROVED;
+    this._status = TransactionStatus.APPROVED;
   }
 
   reject() {
-    this._status = PaymentStatus.REJECTED;
+    this._status = TransactionStatus.REJECTED;
   }
 
   get orderId(): string {
@@ -53,9 +53,9 @@ class PaymentEntity extends BaseEntity implements AggregateRoot {
     return this._amount;
   }
 
-  get status(): PaymentStatus {
+  get status(): TransactionStatus {
     return this._status;
   }
 }
 
-export { PaymentEntity };
+export { TransactionEntity };
